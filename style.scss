@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+$Soft-blue: hsl(215, 51%, 70%);
+$Cyan: hsl(178, 100%, 50%);
+$Very-dark-blue-main : hsl(217, 54%, 11%);
+$Very-dark-blue-card : hsl(216, 50%, 16%);
+$Very-dark-blue-line : hsl(215, 32%, 27%);
+$White: hsl(0, 0%, 100%);
+$border-radius: 20px;
+$transition: all 0.5s ease;
+$font-family: 'Outfit', sans-serif;
+$max-height: 800px;
+* {
+    margin : 0;
+    padding: 0;
+}
+
+p, h1 {
+    font-family: $font-family;
+}
+
+p {
+    font-size: 18px;
+}
+
+html, body {
+    background-color: $Very-dark-blue-main;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-height: $max-height) {
+    html, body {
+        height: $max-height;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+    #card {
+        width: 320px;
+        height: 600px;
+        background-color: $Very-dark-blue-card;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border-radius: $border-radius;
+        padding: 20px;
+        h1, #creator span {
+            transition: $transition;
+            &:hover {
+                color:$Cyan
+            }
+        }
+        #view {
+            width: 270px;
+            height: 270px;
+            border-radius: $border-radius;
+            background-image: url('./images/image-equilibrium.jpg'); 
+            background-size: cover;
+            margin: 0 auto;
+            &::after {
+                content: "";
+                transition: opacity 0.5s ease;
+                opacity: 0%;
+            }
+            &:hover::after {
+                content: '';
+                background-image: url(./images/icon-view.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 80px;
+                width: inherit;
+                height: inherit;
+                border-radius: inherit;
+                background-color: $Cyan;
+                display: inline;
+                position: absolute;
+                opacity: 40%;
+            }
+        }
+        h1 {
+            color: $White;
+            font-weight: 600;
+        }
+        & > p {
+            color: $Soft-blue;
+        }
+        #creator {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            img {
+                width: 50px;
+                margin-right: 20px;
+                border: 1px solid white;
+                border-radius: 50%;
+            }
+            p {
+                color: $Soft-blue;
+                font-weight: 200;
+                span {
+                    color: $White;
+                }
+            }
+        }
+        #data {
+            display: flex;
+            width: 90%;
+            justify-content: space-between;
+            margin: 0 auto;
+            *{
+                display: inline;
+            }
+            #ethereum {
+                color:$Cyan;
+            }
+            #clock {
+                color:$Soft-blue;
+            } 
+        }
+        hr {
+            width: 90%;
+            border: 1px solid $Very-dark-blue-line;
+            margin: 0 auto;
+        }
+        
+    }
+}
