@@ -115,14 +115,15 @@ html, body {
             width: 90%;
             justify-content: space-between;
             margin: 0 auto;
-            *{
-                display: inline;
+            p {
+                display: inline-block;
             }
             #ethereum {
                 color:$Cyan;
             }
             #clock {
                 color:$Soft-blue;
+                
             } 
         }
         hr {
